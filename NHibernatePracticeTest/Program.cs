@@ -10,6 +10,7 @@ using NHibernatePractice1.Repositories;
 
 namespace NHibernatePracticeTest
 {
+    // Write a comment here from SVN.
     class Program
     {
         static void Main(string[] args)
