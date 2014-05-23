@@ -11,26 +11,26 @@
 </hibernate-configuration-->
 
 <!--SQL Server 2012-->
-<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+<!--<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
         <session-factory>
             <property name="dialect">NHibernate.Dialect.MsSql2012Dialect</property>
             <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
             <property name="connection.connection_string">Server=localhost\SQLEXPRESS;initial catalog=FirstSample;Integrated Security=True</property>
-            <!--<property name="proxyfactory.factory_class">NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu</property>-->
+            --><!--<property name="proxyfactory.factory_class">NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu</property>--><!--
 
             <property name="show_sql">true</property>
         </session-factory>
-    </hibernate-configuration>
+    </hibernate-configuration>-->
 
 <!--Oracle-->
-<!--<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
   <session-factory>
     <property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>
     <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
     <property name="connection.driver_class">NHibernate.Driver.OracleDataClientDriver</property>
     <property name="connection.connection_string">Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=wwsnetoracle-2)(PORT=1521)))(CONNECT_DATA=(SID=WWSDMZ)));User Id=net_ww;Password=net_ww;Connection Timeout=720;Enlist=true;Pooling=true;Min Pool Size=1;Max Pool Size=3;Incr Pool Size=1;Decr Pool Size=1;</property>
-    --><!--<property name="proxyfactory.factory_class">NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu</property>--><!--
+    <!--<property name="proxyfactory.factory_class">NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu</property>-->
 
     <property name="show_sql">true</property>
   </session-factory>
-</hibernate-configuration>-->
+</hibernate-configuration>

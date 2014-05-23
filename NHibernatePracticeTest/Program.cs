@@ -19,6 +19,7 @@ namespace NHibernatePracticeTest
             
             var catTester = new OsyCatTester();
             catTester.Run();
+            Console.WriteLine("Done...");
             Console.ReadLine();
         }
 

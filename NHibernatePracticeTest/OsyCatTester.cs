@@ -14,7 +14,7 @@ namespace NHibernatePracticeTest
     {
         public void Run()
         {
-           ExportSchema();
+           //ExportSchema(); // don't have to do it every time. Creating tables once should be enough.
            InsertCat();
           // InsertOsyProduct();
         }

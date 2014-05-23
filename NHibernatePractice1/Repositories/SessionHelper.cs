@@ -7,6 +7,7 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernatePractice1.Domain;
 using NHibernate.Context;
+using System.Reflection;
 
 namespace NHibernatePractice1.Repositories
 {
@@ -22,7 +23,8 @@ namespace NHibernatePractice1.Repositories
                 {
                     var configuration = new Configuration();
                     configuration.Configure();
-                    configuration.AddAssembly(typeof (OsyProduct).Assembly); // TODO: This seems important
+                    //configuration.AddAssembly(typeof (OsyProduct).Assembly); // can add an assembly, can add a class, a configuration file. If assembly, config files have to be embeddedd resources. re
+                    configuration.AddAssembly(Assembly.GetCallingAssembly());
                     _sessionFactory = configuration.BuildSessionFactory();
                 }
                 return _sessionFactory;
