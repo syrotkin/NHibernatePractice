@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace NHibernatePractice1.Domain
+﻿namespace NHibernatePractice1.Domain
 {
     public class OsyCat
     {
@@ -15,7 +10,7 @@ namespace NHibernatePractice1.Domain
         public OsyCat()
         {
         }
-        
+
         public virtual string Id
         {
             get { return _id; }
@@ -38,6 +33,11 @@ namespace NHibernatePractice1.Domain
         {
             get { return _weight; }
             set { _weight = value; }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}: {1}, {2}, weighs {3}lbs.", Id, Name, Sex, Weight);
         }
     }
 }

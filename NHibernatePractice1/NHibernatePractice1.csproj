@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ByCode\OsyCatMapper.cs" />
     <Compile Include="Domain\OsyCat.cs" />
     <Compile Include="Domain\IProductRepository.cs" />
     <Compile Include="Domain\OsyProduct.cs" />

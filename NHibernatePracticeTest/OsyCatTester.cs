@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using NHibernate;
-using NHibernatePractice1.Repositories;
-using NHibernatePractice1.Domain;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using NHibernatePractice1.Domain;
+using NHibernatePractice1.Repositories;
 
 namespace NHibernatePracticeTest
 {
@@ -14,14 +12,34 @@ namespace NHibernatePracticeTest
     {
         public void Run()
         {
-           //ExportSchema(); // don't have to do it every time. Creating tables once should be enough.
-           InsertCat();
-          // InsertOsyProduct();
+            LoadCatsWithQueryOver();
+
+            //ExportSchema(); // don't have to do it every time. Creating tables once should be enough.
+            //InsertCat();
+            // InsertOsyProduct();
+        }
+
+        private void LoadCatsWithQueryOver()
+        {
+            using (ISession session = SessionHelper.OpenSession())
+            {
+                // TODO: no transaction here?
+                IList<OsyCat> cats = session.QueryOver<OsyCat>()
+                    .Where(cat => cat.Name == "Jill")
+                    .And(cat => cat.Weight < 5)
+                    .OrderBy(cat => cat.Name).Asc
+                    .List();
+
+                foreach (OsyCat cat in cats)
+                {
+                    Console.WriteLine(cat);
+                }
+            }
         }
 
         private void InsertOsyProduct()
         {
-            var osyProduct = new OsyProduct {Name = "Coke", Category = "Drinks"};
+            var osyProduct = new OsyProduct { Name = "Coke", Category = "Drinks" };
             Insert(osyProduct);
             Console.WriteLine("done inserting product");
         }
@@ -29,7 +47,7 @@ namespace NHibernatePracticeTest
 
         private void InsertCat()
         {
-            var cat = new OsyCat { Name = "Tom", Sex = 'M', Weight = 3.5f };
+            var cat = new OsyCat { Name = "Bob", Sex = 'M', Weight = 3.4f };
             Insert(cat);
             Console.WriteLine("done inserting cat");
         }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
+﻿using System.Reflection;
 using NHibernate;
 using NHibernate.Cfg;
-using NHibernatePractice1.Domain;
-using NHibernate.Context;
-using System.Reflection;
+using NHibernatePractice1.ByCode;
 
 namespace NHibernatePractice1.Repositories
 {
@@ -25,10 +19,19 @@ namespace NHibernatePractice1.Repositories
                     configuration.Configure();
                     //configuration.AddAssembly(typeof (OsyProduct).Assembly); // can add an assembly, can add a class, a configuration file. If assembly, config files have to be embeddedd resources. re
                     configuration.AddAssembly(Assembly.GetCallingAssembly());
+
+                    //ConfigureMappings();
+
                     _sessionFactory = configuration.BuildSessionFactory();
                 }
                 return _sessionFactory;
             }
+        }
+
+        private static void ConfigureMappings()
+        {
+            var osyCatMapper = new OsyCatMapper();
+            osyCatMapper.MapOsyCat();
         }
 
         public static ISession OpenSession()
