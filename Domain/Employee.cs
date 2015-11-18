@@ -5,44 +5,49 @@ namespace Domain {
 
     public class Employee : EntityBase {
 
-        public string EmployeeNumber {
+        public virtual string EmployeeNumber {
             get;
             set;
         }
-        public string Firstname {
+        public virtual string Firstname {
             get;
             set;
         }
-        public string Lastname {
+        public virtual string Lastname {
             get;
             set;
         }
-        public string EmailAddress {
+        public virtual string EmailAddress {
             get;
             set;
         }
-        public DateTime DateOfBirth {
+        public virtual DateTime DateOfBirth {
             get;
             set;
         }
-        public DateTime DateOfJoining {
+        public virtual DateTime DateOfJoining {
             get;
             set;
         }
 
-        public Address ResidentialAddress {
+        public virtual Address ResidentialAddress {
             get;
             set;
         }
-        public bool IsAdmin {
+        public virtual bool IsAdmin {
             get;
             set;
         }
-        public string Password {
+        public virtual string Password {
             get;
             set;
         }
-        public ICollection<Benefit> Benefits {
+        public virtual ICollection<Benefit> Benefits {
+            get;
+            set;
+        }
+
+        public virtual ICollection<Community> Communities {
             get;
             set;
         }

@@ -2,18 +2,18 @@
 
     public class Benefit : EntityBase {
 
-        public string Name {
+        public virtual string Name {
             get;
             set;
         }
 
-        public string Description {
+        public virtual string Description {
             get;
             set;
         }
 
         // Bidirectional link
-        public Employee Employee {
+        public virtual Employee Employee {
             get;
             set;
         }

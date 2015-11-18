@@ -22,7 +22,10 @@ namespace Tests.Unit {
                     .SetProperty(Environment.Dialect, typeof(SQLiteDialect).AssemblyQualifiedName)
                     .SetProperty(Environment.ConnectionDriver, typeof(SQLite20Driver).AssemblyQualifiedName)
                     .SetProperty(Environment.ConnectionString, "data source=:memory:")
-                    .AddFile("Mappings/Xml/Employee.hbm.xml");
+                    .AddFile("../../../Persistence/Mappings/Xml/Employee.hbm.xml")
+                    .AddFile("../../../Persistence/Mappings/Xml/Address.hbm.xml")
+                    .AddFile("../../../Persistence/Mappings/Xml/Community.hbm.xml")
+                    .AddFile("../../../Persistence/Mappings/Xml/Benefit.hbm.xml");
             m_sessionFactory = m_config.BuildSessionFactory();
             Session = m_sessionFactory.OpenSession();
 
@@ -35,7 +38,7 @@ namespace Tests.Unit {
         }
 
         public void Dispose() {
-            // Session.Dispose();
+             Session.Dispose();
              m_sessionFactory.Dispose();
         }
 

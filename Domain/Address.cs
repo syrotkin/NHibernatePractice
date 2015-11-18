@@ -2,27 +2,32 @@
 {
     public class Address : EntityBase
     {
-        public string AddressLine1 {
+        public virtual string AddressLine1 {
             get;
             set;
         }
 
-        public string AddressLine2 {
+        public virtual string AddressLine2 {
             get;
             set;
         }
 
-        public string Postcode {
+        public virtual string Postcode {
             get;
             set;
         }
 
-        public string City {
+        public virtual string City {
             get;
             set;
         }
 
-        public string Country {
+        public virtual string Country {
+            get;
+            set;
+        }
+
+        public virtual Employee Employee {
             get;
             set;
         }
