@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BenefitMappingTests.cs" />
     <Compile Include="EmployeeMappingTests.cs" />
     <Compile Include="EmployeeTests.cs" />
     <Compile Include="InMemoryDatabaseForXmlMappings.cs" />

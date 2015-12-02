@@ -1,0 +1,28 @@
+Mapping inheritance in XML:
+1. Strategy: table per inheritance hierarchy
+	- declare discriminator column
+	- provide values of the discriminator column for the subclasses. e.g. Benefit declares discriminator column = "BenefitType". 
+		SkillsAllowance has discriminator value = "SKL" in the BenefitType column
+		Default value of the discriminator column is "class" (of type string)
+		- not normalized
+		- not possible to declare non-null properties
+2. Strategy: table per subclass --- (joined association). Benefit contains the common fields, and is joined by ID with the other 
+		tables, e.g. SkillsAllowance, which contain specific fields.
+3. Strategy: table per concrete class -- uses unions. -- Avoid unless no other option
+	Still has the Benefit Table. There is no relation among the tables.
+	- not normalized
+	- polymorphic associations don't work reliably
+
+"Component" is like a "Value Type" -- it is an object without an ID. You can persist a component as part of an entity, e.g., 
+ResidentialAddress is persisted as part of Employee
+-----
+
+WHY? Identity is not a recommended strategy
+
+Mapping by Code
+- derive from ClassMapping<T>
+- add default constructor
+
+SubclassMapping -- corresponds to "table per inheritance hierarchy" // with DiscriminatorValues
+JoinedSubclassMapping -- corresponds to "table per subclass" mapping // PREFERRED
+UnioinSubclassMapping -- corresponds to "table per concrete class mapping" 
